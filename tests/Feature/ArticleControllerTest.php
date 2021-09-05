@@ -18,7 +18,7 @@ class ArticleControllerTest extends TestCase
         $response->assertStatus(200)
             ->assertViewIs('articles.index');
     }
-    
+
     public function testGuestCreate()
     {
         $response = $this->get(route('articles.create'));
@@ -33,7 +33,7 @@ class ArticleControllerTest extends TestCase
         $response = $this->actingAs($user)
             ->get(route('articles.create'));
 
-        $response->assertStatus(200)
+        $response->assertStatus(400)
             ->assertViewIs('articles.create');
     }
 }
